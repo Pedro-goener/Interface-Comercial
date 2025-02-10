@@ -2,5 +2,5 @@ streamlit
 pandas
 numpy
 python-pptx
-comtypes
+#comtypes
 python-dateutil

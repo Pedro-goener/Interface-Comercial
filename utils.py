@@ -9,26 +9,26 @@ from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 import re
 import datetime
-import comtypes.client
+#import comtypes.client
 import os
 import io
 
 
-def convert_ppt_to_pdf(input_file, output_file):
-    #Inicialização COM
-    comtypes.CoInitialize()
-    # Verificar se o caminho é absoluto
-    input_file = os.path.abspath(input_file)
-    output_file = os.path.abspath(output_file)
-
-    powerpoint = comtypes.client.CreateObject("PowerPoint.Application")
-    powerpoint.DisplayAlerts = 0  # Desativar alertas
-    presentation = powerpoint.Presentations.Open(input_file, WithWindow=False)
-    presentation.SaveAs(output_file, 32)  # 32 is the format type for PDF
-    presentation.Close()
-    powerpoint.Quit()
-    #Finalizar COM
-    comtypes.CoUninitialize()
+#def convert_ppt_to_pdf(input_file, output_file):
+    # #Inicialização COM
+    # comtypes.CoInitialize()
+    # # Verificar se o caminho é absoluto
+    # input_file = os.path.abspath(input_file)
+    # output_file = os.path.abspath(output_file)
+    #
+    # powerpoint = comtypes.client.CreateObject("PowerPoint.Application")
+    # powerpoint.DisplayAlerts = 0  # Desativar alertas
+    # presentation = powerpoint.Presentations.Open(input_file, WithWindow=False)
+    # presentation.SaveAs(output_file, 32)  # 32 is the format type for PDF
+    # presentation.Close()
+    # powerpoint.Quit()
+    # #Finalizar COM
+    # comtypes.CoUninitialize()
 
 
 # Função para formatar texto
