@@ -1,0 +1,6 @@
+streamlit
+pandas
+numpy
+python-pptx
+comtypes
+python-dateutil
