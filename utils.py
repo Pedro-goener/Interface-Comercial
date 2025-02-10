@@ -209,24 +209,6 @@ def powerpoint_edit(infos,buffer):
 
     economia_mensal = round(consumoRS - custo_total_GD, 2)
     economia_anual = round(economia_mensal * 12, 2)
-    economia_percentual = round((economia_anual / (consumoRS * 12)) * 100, 2)
-
-    # print(f'Tarifa sem impostos: {tarifa_simpostos}')
-    # print(f'Tarifa com impostos: {tarifa_cimpostos}')
-    # print(f'Tarifa compensável GC: {Tarifa_compensavel_GC}')
-    # print(f'Tarifa compensável Atual: {Tarifa_compensavel_real}')
-    # print(f'Tarifa resultante (com desconto): {tarifa_resultante}\n')
-    #
-    # print(f'ICMS: {ICMS_RS}')
-    # print(f'Custo mensal sem Goener: {consumoRS}')
-    # print(f'Custo mensal com Goener: {custo_total_GD}\n')
-    #
-    # print(f'Custo anual sem Goener: {consumoANO}')
-    # print(f'Custo anual Ccom Goener: {custo_total_GD * 12}\n')
-    #
-    # print(f'Economia mensal: {economia_mensal}')
-    # print(f'Economia anual: {economia_anual}')
-    # print(f'Economia percentual: {economia_percentual}')
 
     economia_ano2 = round(economia_anual * 1.05, 2)
     economia_ano3 = round(economia_ano2 * 1.05, 2)
@@ -246,7 +228,6 @@ def powerpoint_edit(infos,buffer):
     consumoANO_str = f"{consumoANO:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
     custo_total_GD_ANO_str = f"{custo_total_GD_ANO:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
-    #print(economia_mensal_str)
 
     '''
     Atualização da proposta:
@@ -279,52 +260,39 @@ def powerpoint_edit(infos,buffer):
                                                        texto2=texto_atualizado, fonte1="Arial", tamanho1=18,
                                                        fonte2="Arial Bold", tamanho2=18)
                     elif text.startswith("XX%"):  # OK
-                        # print('entrou % desconto')
                         texto_atualizado = f"{desconto}% DE DESCONTO"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Arial Bold", tamanho1=16)
                     elif text.startswith("R$ A.BBB,CC"):  # OK
-                        # print('entrou economia prevista ano')
                         texto_atualizado = f"R$ {economia_anual_str}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Open Sans Bold", tamanho1=34)
                     elif text.startswith("R$ X.XXX,XX"):  # OK
-                        # print('entrou economia 5 anos')
                         texto_atualizado = f"R$ {economia_5anos_str}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Open Sans Bold", tamanho1=16)
                     elif text.startswith("R$ BB.CCC"):  # OK
-                        # print('entrou CUSTO TOTAL ATUAL')
                         texto_atualizado = f"R$ {consumoANO_str}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Open Sans Bold", tamanho1=16)
                     elif text.startswith("R$ CC.BBB"):  # OK
-                        # print('entrou custo total com Goener')
                         texto_atualizado = f"R$ {custo_total_GD_ANO_str}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Open Sans Bold", tamanho1=16)
                     elif text.startswith("Sem fidelidade"):  # OK
-                        # print('entrou Fidelidade')
-                        # shape.text_frame.clear()
                         texto_atualizado = f"{fidelidade_str}, sem investimento, sem instalação ou modificação na rede elétrica atual"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Arial", tamanho1=10)
                     elif text.startswith("00/00"):  # OK
-                        # print('entrou data')
                         texto_atualizado = f"{data}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Arial italics", tamanho1=8)
                     elif text.startswith("R$ 1.aaa,05"):
-                        #print('entrou economia ano 1')
                         texto_atualizado = f"R$ {economia_anual_str}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Arial", tamanho1=5)
                     elif text.startswith("R$ 1.bbb,05"):
-                        #print('entrou economia ano 2')
                         texto_atualizado = f"R$ {economia_ano2_str}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Arial", tamanho1=5)
                     elif text.startswith("R$ 1.ccc,05"):
-                        #print('entrou economia ano 3')
                         texto_atualizado = f"R$ {economia_ano3_str}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Arial", tamanho1=5)
                     elif text.startswith("R$ 1.ddd,05"):
-                        #print('entrou economia ano 4')
                         texto_atualizado = f"R$ {economia_ano4_str}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Arial", tamanho1=5)
                     elif text.startswith("R$ 1.eee,05"):
-                        #print('entrou economia ano 5')
                         texto_atualizado = f"R$ {economia_ano5_str}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Arial", tamanho1=5)
 
