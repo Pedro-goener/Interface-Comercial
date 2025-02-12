@@ -3,4 +3,3 @@ pandas
 numpy
 python-pptx
 python-dateutil
-pdf2pptx
