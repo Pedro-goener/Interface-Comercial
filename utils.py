@@ -9,10 +9,8 @@ from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 import re
 import datetime
-#import comtypes.client
 import os
 import io
-
 
 #def convert_ppt_to_pdf(input_file, output_file):
     # #Inicialização COM
@@ -295,7 +293,11 @@ def powerpoint_edit(infos,buffer):
                     elif text.startswith("R$ 1.eee,05"):
                         texto_atualizado = f"R$ {economia_ano5_str}"
                         atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Arial", tamanho1=5)
-
+                    elif text.startswith("Para sim"):
+                        texto_atualizado = f"Para simulação foi considerando o consumo médio de {consumokwh:,.0f} kWh/mês".replace(
+                            ",", "X").replace(".", ",").replace("X", ".")
+                        atualizar_texto_shape(shape, texto1=texto_atualizado, fonte1="Arial", tamanho1=8)
+                        
     # Salvar as alterações em novo buffer
     output_buffer = io.BytesIO()
     ap.save(output_buffer)
