@@ -45,7 +45,7 @@ create_button = st.button('Criar Apresentação')
 
 if create_button:
     #Abertura do arquivo
-    with open('APRESENTAÇÃO_GD.pptx','rb') as f:
+    with open('APRESENTACAO_GD.pptx','rb') as f:
         pptx_bytes = f.read()
 
     pptx_buffer = io.BytesIO(pptx_bytes)
