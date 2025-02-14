@@ -38,3 +38,19 @@ def insert_proposal(db_config,infos):
     with engine.connect() as connection:
         connection.execute(query, infos)
         connection.commit()
+
+def create_user(db_config,partner_info):
+    connection_string = (
+        f"postgresql://{db_config['user']}:{db_config['password']}@"
+        f"{db_config['host']}:{db_config['port']}/{db_config['dbname']}"
+    )
+
+    engine = create_engine(connection_string)
+
+    query = text("""
+        INSERT INTO usuarios(email,senha,username,admin)
+        VALUES(:email,:senha,:username,:admin)
+        """)
+    with engine.connect() as connection:
+        connection.execute(query, partner_info)
+        connection.commit()
