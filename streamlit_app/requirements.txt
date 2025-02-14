@@ -3,3 +3,5 @@ pandas
 numpy
 python-pptx
 python-dateutil
+sqlalchemy
+psycopg2-binary
