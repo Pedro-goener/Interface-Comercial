@@ -50,7 +50,7 @@ create_button = st.button('Criar Apresentação')
 
 if create_button:
     #Abertura do arquivo
-    prs_path = os.path.join('.streamlit','APRESENTACAO_GD.pptx')
+    prs_path = os.path.join('..','.streamlit','APRESENTACAO_GD.pptx')
     with open(prs_path,'rb') as f:
         pptx_bytes = f.read()
 
